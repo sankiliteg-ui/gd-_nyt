@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Night Didi ❤️</title>
+   <style>
+    :root {
+        --bg-gradient: linear-gradient(180deg, #0b1026, #1b1f4a, #2a1a40);
+        --card-bg: rgba(255, 255, 255, 0.12);
+        --text-color: #f5f7ff;
+        --accent-gold: #ffd27d;
+        --rose: #ff9eb5;
+        --soft-blue: #9ad7ff;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Poppins', 'Segoe UI', sans-serif;
+        background: var(--bg-gradient);
+        color: var(--text-color);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Stars */
+    .stars {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+    }
+
+    .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+        0%,100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+
+    .container {
+        width: 90%;
+        max-width: 620px;
+        padding: 25px;
+        text-align: center;
+    }
+
+    header {
+        margin-top: 25px;
+        animation: fadeInDown 1.5s ease;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        margin: 0;
+        letter-spacing: 1px;
+        color: var(--rose);
+        text-shadow: 0 0 18px rgba(255,158,181,0.6);
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        color: var(--accent-gold);
+        margin-top: 6px;
+        letter-spacing: 2px;
+    }
+
+    .card {
+        background: var(--card-bg);
+        backdrop-filter: blur(14px);
+        border-radius: 22px;
+        padding: 28px;
+        margin: 22px 0;
+        border: 1px solid rgba(255,255,255,0.25);
+        box-shadow: 0 0 25px rgba(255,210,125,0.15);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 1s forwards;
+    }
+
+    .card:nth-child(2){animation-delay:.3s}
+    .card:nth-child(3){animation-delay:.6s}
+
+    h2 {
+        font-size: 1.6rem;
+        color: var(--soft-blue);
+        margin-bottom: 12px;
+        text-shadow: 0 0 10px rgba(154,215,255,0.5);
+    }
+
+    p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: #eef1ff;
+    }
+
+    .highlight {
+        color: var(--accent-gold);
+        font-weight: 600;
+    }
+
+    .btn-blessing {
+        background: linear-gradient(45deg, #ff9eb5, #ffd27d);
+        border: none;
+        padding: 14px 30px;
+        color: #2a1a40;
+        border-radius: 50px;
+        font-size: 1.05rem;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 0 20px rgba(255,210,125,0.6);
+        transition: all 0.3s ease;
+    }
+
+    .btn-blessing:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(255,210,125,0.9);
+    }
+
+    footer {
+        margin-top: 30px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+
+    @keyframes fadeInDown {
+        from { opacity:0; transform:translateY(-20px); }
+        to { opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes slideUp {
+        to { opacity:1; transform:translateY(0); }
+    }
+</style>
+
+</head>
+<body>
+
+    <div class="stars" id="star-container"></div>
+
+    <div class="container">
+        
+        <header>
+            <div style="font-size: 3rem;">🌙</div>
+            <h1>Good Night <span style="color:var(--soft-pink)">Didi</span></h1>
+            <div class="subtitle">Radhe Radhe & Waheguru Ji Bless You</div>
+        </header>
+
+        <div class="card">
+            <h2>Oye Didi, Listen...</h2>
+            <p>
+                Pura din you work so hard and take care and  drink a glass of water and relax your mind
+            </p>
+            <p>
+                <span class="highlight">Don't stress about tomorrow.</span> Rab Rakha! Everything will be sorted. 
+                Just close your eyes and breathe.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>✨ Your Daily Dose of Power</h2>
+            <p>
+                "You are stronger than you think, Didi."
+            </p>
+            <p>
+           Waheguru ji ki kirpa hamesha aap par bani rahe  
+Aap hamesha khush raho, sehatmand raho,  
+aur zindagi mein sirf sukoon aur pyaar mile 
+
+            </p>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <h2>🙏 Radhe Radhe</h2>
+            <p id="blessing-text">Click the button below for a special blessing.</p>
+            <button class="btn-blessing" onclick="showBlessing()">Tap for Magic </button>
+        </div>
+
+        <footer>
+            Made by TUGGU<br>
+            Sleep Tight! 😴
+        </footer>
+
+    </div>
+
+    <script>
+        /* --- JAVASCRIPT LOGIC --- */
+
+        // Function to create twinkling stars
+        function createStars() {
+            const container = document.getElementById('star-container');
+            for(let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                // Random position
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                // Random size
+                const size = Math.random() * 3;
+                
+                star.style.left = x + '%';
+                star.style.top = y + '%';
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                
+                container.appendChild(star);
+            }
+        }
+
+        // Function for the button interaction
+        function showBlessing() {
+            const messages = [
+                "May Waheguru Ji give you Chardi Kala! ",
+                "Krishna says: Do your karma, don't worry about the result. ",
+                "You are protected, loved, and guided. Radhe Radhe! ",
+                "Sleep peacefully, tomorrow is YOUR day! "
+            ];
+            const textElement = document.getElementById('blessing-text');
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            
+            textElement.style.opacity = 0;
+            setTimeout(() => {
+                textElement.innerHTML = `<span style='color: #ffd700; font-size: 1.2rem;'>${randomMsg}</span>`;
+                textElement.style.opacity = 1;
+                textElement.style.transition = "opacity 0.5s ease";
+            }, 300);
+        }
+
+        // Initialize stars on load
+        window.onload = createStars;
+
+    </script>
+</body>
+</html>
